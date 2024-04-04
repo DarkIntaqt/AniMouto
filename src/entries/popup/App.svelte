@@ -25,6 +25,7 @@
   import NavLink from "$lib/components/NavLink.svelte";
   import Routes from "$lib/components/Routes.svelte";
   import DebugOverlay from "$lib/components/DebugOverlay.svelte";
+  import Tooltip from "$lib/components/Tooltip.svelte";
 
   const history = createHistory(createHashedHistory());
 
@@ -74,13 +75,19 @@
       class="w-14 h-full flex-none flex flex-col items-center justify-between bg-variable border-r-4 border-r-accent"
       style="--color-variable:var(--sidebar-background)"
     >
-      <a href={$user.siteUrl} target="_blank" class="flex-none mt-2 px-2">
-        <img
-          src={$user.avatar.large}
-          alt="User avatar"
-          class="rounded-full aspect-square w-12"
-        />
-      </a>
+      <Tooltip
+        placement="right"
+        content={"Profile"}
+        class="flex-none mt-2 px-2"
+      >
+        <a href={$user.siteUrl} target="_blank">
+          <img
+            src={$user.avatar.large}
+            alt="User avatar"
+            class="rounded-full aspect-square w-12"
+          />
+        </a>
+      </Tooltip>
       <div class="my-4 flex-1 w-full flex flex-col space-y-2">
         {#if !$loggedIn}
           <NavLink href="/" icon={faSignInAlt} title="Login" />
@@ -108,9 +115,15 @@
           alignBottom={true}
         />
       </div>
-      <a href="https://anilist.co" target="_blank" class="flex-none mb-2 px-2">
-        <img src={anilistLogo} alt="AniList Logo" />
-      </a>
+      <Tooltip
+        placement={"right"}
+        content="AniList"
+        class="flex-none mb-2 px-2"
+      >
+        <a href="https://anilist.co" target="_blank">
+          <img src={anilistLogo} alt="AniList Logo" />
+        </a>
+      </Tooltip>
     </nav>
     <div
       class="flex-1 p-2 relative h-full bg-background text-text-400 overflow-y-auto overflow-x-hidden"
