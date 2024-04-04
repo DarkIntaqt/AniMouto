@@ -113,7 +113,7 @@
                 />
               </Tooltip>
             {/if}
-            <div class="flex-1 flex space-x-1 justify-end text-sm">
+            <div class="flex-1 flex space-x-2 justify-end text-sm">
               {#if $loggedIn}
                 <Tooltip class="w-max flex items-center" placement="top" content={$media.data.Media.isFavorite ? "Remove from favorites" : "Add to favorites"}>
                   <button on:click={() => toggleFavorite()}>
