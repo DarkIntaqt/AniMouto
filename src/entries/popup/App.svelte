@@ -12,6 +12,7 @@
   import NavLink from "$lib/components/NavLink.svelte";
   import Routes from "$lib/components/Routes.svelte";
   import DebugOverlay from "$lib/components/DebugOverlay.svelte";
+  import Tooltip from "$lib/components/Tooltip.svelte";
 
   const history = createHistory(createHashedHistory());
 
@@ -51,10 +52,12 @@
   class="root {$extensionConfig.theme.wide ? "w-[716px]" : "w-[525px]"} h-[600px] flex theme-{$extensionConfig.theme.primary} text-base" style="--color-accent:var(--color-{$extensionConfig.theme.accent})">
   <Router {history} primary={false}>
     <nav class="w-14 h-full flex-none flex flex-col items-center justify-between bg-variable border-r-4 border-r-accent" style="--color-variable:var(--sidebar-background)">
-      <a href={$user.siteUrl} target="_blank" class="flex-none mt-2">
-        <img src={$user.avatar.large} alt="User avatar" class="rounded-full aspect-square w-12">
-      </a>
-      <div class="mt-4 flex-1 w-full flex flex-col space-y-2">
+      <Tooltip placement="right" content="Profile" class="flex-none mt-2 px-2">
+        <a href={$user.siteUrl} target="_blank" >
+          <img src={$user.avatar.large} alt="User avatar" class="rounded-full aspect-square w-full">
+        </a>
+      </Tooltip>
+      <div class="my-4 flex-1 w-full flex flex-col space-y-2">
         {#if !$loggedIn}
           <NavLink href="/" icon={faSignInAlt} title="Login" />
         {/if}
@@ -72,11 +75,13 @@
             {/if}
           </NavLink>
         {/if}
-        <NavLink href="/settings" icon={faCog} title="Settings" />
+        <NavLink href="/settings" icon={faCog} title="Settings" alignBottom={true} />
       </div>
-      <a href="https://anilist.co" target="_blank" class="flex-none">
-        <img src={anilistLogo} alt="AniList Logo">
-      </a>
+      <Tooltip placement="right" content="AniList" class="flex-none mb-2 px-2">
+        <a href="https://anilist.co" target="_blank" >
+          <img src={anilistLogo} alt="AniList Logo">
+        </a>
+      </Tooltip>
     </nav>
     <div class="flex-1 p-2 relative h-full bg-background text-text-400 overflow-y-auto overflow-x-hidden">
       <div class="absolute top-0 w-0 h-0 pointer-events-none" bind:this={scrollAnchor} />
