@@ -47,24 +47,24 @@
       <Icon class="absolute right-2 bottom-3 pointer-events-none text-accent" icon={faSpinner} spin />
     {/if}
   </div>
-  <div class="w-2/3 mt-4 grid grid-cols-4 border border-text-300 rounded-md">
+  <div class="w-2/3 mt-2 grid grid-cols-4 rounded-lg p-1 gap-0.5 bg-foreground">
     <button 
-      class="px-2 py-0.5 text-sm rounded-md hover:bg-accent/40 hover:text-text-400 transition-colors" 
+      class="px-2 py-0.5 text-sm rounded hover:bg-accent/40 hover:text-text-400 transition-colors" 
       class:selected={selectedMode === "ALL"}
       on:click={() => selectedMode = "ALL"}
     >All</button>
     <button 
-      class="px-2 py-0.5 text-sm rounded-md hover:bg-accent/40 hover:text-text-400 transition-colors" 
+      class="px-2 py-0.5 text-sm rounded hover:bg-accent/40 hover:text-text-400 transition-colors" 
       class:selected={selectedMode === "ANIME"}
       on:click={() => selectedMode = "ANIME"}
     >Anime</button>
     <button
-      class="px-2 py-0.5 text-sm rounded-md hover:bg-accent/40 hover:text-text-400 transition-colors" 
+      class="px-2 py-0.5 text-sm rounded hover:bg-accent/40 hover:text-text-400 transition-colors" 
       class:selected={selectedMode === "MANGA"}
       on:click={() => selectedMode = "MANGA"}
     >Manga</button>
     <button
-      class="px-2 py-0.5 text-sm rounded-md hover:bg-accent/40 hover:text-text-400 transition-colors" 
+      class="px-2 py-0.5 text-sm rounded hover:bg-accent/40 hover:text-text-400 transition-colors" 
       class:selected={selectedMode === "LIGHT_NOVEL"}
       on:click={() => selectedMode = "LIGHT_NOVEL"}
     >Novel</button>
