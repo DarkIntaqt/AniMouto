@@ -84,7 +84,7 @@
           <img
             src={$user.avatar.large}
             alt="User avatar"
-            class="rounded-full aspect-square w-12"
+            class="rounded-full aspect-square w-full"
           />
         </a>
       </Tooltip>
