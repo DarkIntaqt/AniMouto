@@ -28,7 +28,7 @@
       {#each ($followingStats.data.Page.mediaList || []) as following (following.user.id)}
         <div class="w-full h-10 flex items-center space-x-4 bg-foreground rounded-md">
           <a href={following.user.siteUrl} target="_blank" class="flex-none">
-            <div class="w-10 h-full aspect-square bg-cover rounded-full" style="background-image:url({following.user.avatar.large})" />
+            <div class="w-8 m-1 h-full aspect-square bg-cover rounded-full" style="background-image:url({following.user.avatar.large})" />
           </a>
           <a href={following.user.siteUrl} target="_blank" class="flex-1 hover:text-accent transition-colors">
             <h2 class="font-medium text-sm">{following.user.name}</h2>
